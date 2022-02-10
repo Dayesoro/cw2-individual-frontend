@@ -132,7 +132,7 @@
                         <div v-for="(lesson, index) in cart" class="col-md-3 mb-4">
                             <div class="card">
                                 <img class="card-img"
-                                    v-bind:src="`http://localhost:3000/${fetchLesson(lesson.lessonID).image}`"
+                                    v-bind:src="`https://cw2-individual-backend.herokuapp.com/${fetchLesson(lesson.lessonID).image}`"
                                     alt="Lesson Image">
                                 <div class="card-body">
                                     <h6>Subject: {{fetchLesson(lesson.lessonID).subject}}</h6>
@@ -253,7 +253,7 @@
                 },
                 // Search For lessons
                 searchLessons: function () {
-                    fetch("http://localhost:3000/collection/lesson/" + this.term).then(
+                    fetch("https://cw2-individual-backend.herokuapp.com/collection/lesson/" + this.term).then(
                         function (response) {
                             response.json().then(
                                 function (data) {
@@ -264,7 +264,7 @@
                         })
                 },
                 checkOut: function () {
-            fetch('http://localhost:3000/collection/order', {
+            fetch('https://cw2-individual-backend.herokuapp.com/collection/order', {
                 method: 'POST', // set the HTTP method as 'POST'
                 headers: {
                     'Content-Type': 'application/json', // set the data type as JSON
@@ -278,7 +278,7 @@
 
             for (let index = 0; index < this.cart.length; index++) {
                 const lesson = this.fetchLesson(this.cart[index].lessonID);
-                fetch(`http://localhost:3000/collection/lesson/${lesson._id}`, {
+                fetch(`https://cw2-individual-backend.herokuapp.com/collection/lesson/${lesson._id}`, {
                     method: 'PUT', // set the HTTP method as 'POST'
                     headers: {
                         'Content-Type': 'application/json', // set the data type as JSON
@@ -372,7 +372,7 @@
             },
             created: function () {
                 //FETCH TO GET ALL LESSONS
-                fetch("http://localhost:3000/collection/lesson").then(
+                fetch("https://cw2-individual-backend.herokuapp.com/collection/lesson").then(
                     function (response) {
                         response.json().then(
                             function (data) {
